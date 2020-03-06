@@ -40,18 +40,9 @@
                         </div>
                     </router-link>
 
-                    <router-link to="/jobtypes" class="v-list-item v-list-item--link theme--light" v-if="user.can['view jobtypes']">
-                        <div class="v-list__tile__action">
-                            <v-icon>book</v-icon>
-                        </div>
-                        <div class="v-list-item__content">
-                            <div class="v-list-item__title">Job types</div>
-                        </div>
-                    </router-link>
-
-                    <v-list-group prepend-icon="account_circle" v-if="user.can['view users']">
+                    <v-list-group prepend-icon="settings" v-if="user.can['view users'] || user.can['view jobtypes'] || user.can['view roles']">
                         <template v-slot:activator>
-                            <v-list-item-title>Users</v-list-item-title>
+                            <v-list-item-title>Settings</v-list-item-title>
                         </template>
                         <router-link to="/users" class="v-list-item v-list-item--link theme--light">
                             <div class="v-list__tile__action">
@@ -61,12 +52,20 @@
                                 <div class="v-list-item__title">Users</div>
                             </div>
                         </router-link>
-                        <router-link to="/roles" class="v-list-item v-list-item--link theme--light">
+                        <router-link to="/roles" class="v-list-item v-list-item--link theme--light" v-if="user.can['view roles']">
                             <div class="v-list__tile__action">
                                 <v-icon>gavel</v-icon>
                             </div>
                             <div class="v-list-item__content">
                                 <div class="v-list-item__title">Roles</div>
+                            </div>
+                        </router-link>
+                        <router-link to="/jobtypes" class="v-list-item v-list-item--link theme--light" v-if="user.can['view jobtypes']">
+                            <div class="v-list__tile__action">
+                                <v-icon>book</v-icon>
+                            </div>
+                            <div class="v-list-item__content">
+                                <div class="v-list-item__title">Job types</div>
                             </div>
                         </router-link>
                     </v-list-group>
@@ -85,8 +84,9 @@
 
     <v-app-bar :clipped-left="clipped" app color="blue darken-3" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-        <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-            <img src="/storage/logo.jpg" alt style="width: 130px; height: 60px;border-radius: 20px;">
+        <v-toolbar-title style="width: 700px" class="ml-0 pl-4">
+            <!-- <img src="/storage/logo.jpg" alt style="width: 130px; height: 60px;border-radius: 20px;"> -->
+            DOCUCARE LIMITED MANAGEMENT INFORMATION SYSTEM
         </v-toolbar-title>
         <v-spacer />
         <LogoutClient :user="user" v-if="user.is_client"></LogoutClient>
@@ -109,7 +109,7 @@
         <v-icon dark right>{{ icon }}</v-icon>
     </v-snackbar>
     <v-footer style="background: #e2e0e0 !important;" app>
-        <span style="color: #000; margin: auto;">Mft fulfillment center &copy; {{ new Date().getFullYear() }}</span>
+        <span style="color: #000; margin: auto;">&copy; {{ new Date().getFullYear() }} Powered by Hills Data Technologies. Kenya</span>
     </v-footer>
 </v-app>
 </template>

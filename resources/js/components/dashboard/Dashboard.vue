@@ -14,135 +14,135 @@
                     </el-option>
                 </el-select>
             </v-flex> -->
-                <el-row :gutter="24" style="width: 100%">
-                    <el-col :span="6">
-                        <div style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #1093de;">{{ jobs_count }}</p>
-                                    <h5>Jobs</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #db3f26;">{{ complete_jobs_count }}</p>
-                                    <h5>Completed Jobs</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div @click="openPage('To be delivered')" style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #388a10;">{{ pedding_jobs_count }}</p>
-                                    <h5>Pedding</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div @click="openPage('Returned')" style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #f4a204;">{{ today_jobs_count }}</p>
-                                    <h5>Today Jobs</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                </el-row>
-                <div style="margin: 50px"></div>
-                <el-row :gutter="24" style="width: 100%">
-                    <el-col :span="6">
-                        <div style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #db3f26;">{{ open_leads_count }}</p>
-                                    <h5>Total revenue</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #1093de;">{{ avarage_revenue }}</p>
-                                    <h5>Avarage month revenue</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div @click="openPage('To be delivered')" style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #388a10;">{{ closed_leads_count }}</p>
-                                    <h5>Today Revenue</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div @click="openPage('Returned')" style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #f4a204;">{{ user_count }}</p>
-                                    <h5>Users</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                </el-row>
+            <el-row :gutter="24" style="width: 100%">
+                <el-col :span="6">
+                    <div style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ jobs_count }}</p>
+                                <h5 style="color: #fff">Jobs</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ complete_jobs_count }}</p>
+                                <h5 style="color: #fff">Completed Jobs</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div @click="openPage('To be delivered')" style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ pedding_jobs_count }}</p>
+                                <h5 style="color: #fff">Pending</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div @click="openPage('Returned')" style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ today_jobs_count }}</p>
+                                <h5 style="color: #fff">Today Jobs</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+            </el-row>
+            <div style="margin: 50px"></div>
+            <el-row :gutter="24" style="width: 100%">
+                <el-col :span="6">
+                    <div style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ open_leads_count }}</p>
+                                <h5 style="color: #fff">Total revenue</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ avarage_revenue }}</p>
+                                <h5 style="color: #fff">Average month revenue</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div @click="openPage('To be delivered')" style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ closed_leads_count }}</p>
+                                <h5 style="color: #fff">Today Revenue</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div @click="openPage('Returned')" style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ user_count }}</p>
+                                <h5 style="color: #fff">Users</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+            </el-row>
 
-                <div style="margin: 50px"></div>
-                <el-row :gutter="24" style="width: 100%">
-                    <el-col :span="6">
-                        <div style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #1093de;">{{ client_count }}</p>
-                                    <h5>Jobs</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #db3f26;">{{ open_leads_count }}</p>
-                                    <h5>Open Leads</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div @click="openPage('To be delivered')" style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #388a10;">{{ closed_leads_count }}</p>
-                                    <h5>Closed Leads</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div @click="openPage('Returned')" style="cursor: pointer">
-                            <el-card shadow="hover">
-                                <div class="text-center">
-                                    <p style="font-size: 36px;color: #f4a204;">{{ cancelled_leads_count }}</p>
-                                    <h5>Cancelled Leads</h5>
-                                </div>
-                            </el-card>
-                        </div>
-                    </el-col>
-                </el-row>
+            <div style="margin: 50px"></div>
+            <el-row :gutter="24" style="width: 100%">
+                <el-col :span="6">
+                    <div style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ client_count }}</p>
+                                <h5 style="color: #fff">Jobs</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ open_leads_count }}</p>
+                                <h5 style="color: #fff">Open Leads</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div @click="openPage('To be delivered')" style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ closed_leads_count }}</p>
+                                <h5 style="color: #fff">Closed Leads</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+                <el-col :span="6">
+                    <div @click="openPage('Returned')" style="cursor: pointer">
+                        <el-card shadow="hover">
+                            <div class="text-center">
+                                <p style="font-size: 36px;color: #fff;">{{ cancelled_leads_count }}</p>
+                                <h5 style="color: #fff">Cancelled Leads</h5>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-col>
+            </el-row>
         </v-layout>
     </v-container>
 </v-content>
@@ -166,166 +166,166 @@ export default {
         }
     },
     methods: {
-get_user_count() {
-    axios.get('user_count').then((response) => {
-            this.user_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_client_count() {
-    axios.get('client_count').then((response) => {
-            this.client_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_jobs_count() {
-    axios.get('jobs_count').then((response) => {
-            this.jobs_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_complete_jobs_count() {
-    axios.get('complete_jobs_count').then((response) => {
-            this.complete_jobs_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_pedding_jobs_count() {
-    axios.get('pedding_jobs_count').then((response) => {
-            this.pedding_jobs_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_open_leads_count() {
-    axios.get('open_leads_count').then((response) => {
-            this.open_leads_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_closed_leads_count() {
-    axios.get('closed_leads_count').then((response) => {
-            this.closed_leads_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_cancelled_leads_count() {
-    axios.get('cancelled_leads_count').then((response) => {
-            this.cancelled_leads_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_today_jobs_count() {
-    axios.get('today_jobs_count').then((response) => {
-            this.today_jobs_count = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
-get_avarage_revenue() {
-    axios.get('avarage_revenue').then((response) => {
-            this.avarage_revenue = response.data
-        }).catch((error) => {
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
-        })
-},
+        get_user_count() {
+            axios.get('user_count').then((response) => {
+                this.user_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_client_count() {
+            axios.get('client_count').then((response) => {
+                this.client_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_jobs_count() {
+            axios.get('jobs_count').then((response) => {
+                this.jobs_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_complete_jobs_count() {
+            axios.get('complete_jobs_count').then((response) => {
+                this.complete_jobs_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_pedding_jobs_count() {
+            axios.get('pedding_jobs_count').then((response) => {
+                this.pedding_jobs_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_open_leads_count() {
+            axios.get('open_leads_count').then((response) => {
+                this.open_leads_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_closed_leads_count() {
+            axios.get('closed_leads_count').then((response) => {
+                this.closed_leads_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_cancelled_leads_count() {
+            axios.get('cancelled_leads_count').then((response) => {
+                this.cancelled_leads_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_today_jobs_count() {
+            axios.get('today_jobs_count').then((response) => {
+                this.today_jobs_count = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
+        get_avarage_revenue() {
+            axios.get('avarage_revenue').then((response) => {
+                this.avarage_revenue = response.data
+            }).catch((error) => {
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
+        },
         refresh_dashboard() {
 
         },
@@ -386,5 +386,13 @@ get_avarage_revenue() {
 
 .info-title {
     margin-top: 20px;
+}
+
+.el-card {
+    border: 1px solid #EBEEF5;
+    background-color: #FFF;
+    color: #303133;
+    transition: .3s;
+    background: #67c23a;
 }
 </style>

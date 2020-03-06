@@ -24,7 +24,7 @@ export default {
     jobtypes(state) {
         return state.jobtypes
     },
-    
+
     user_perm(state) {
         return state.user_perm;
     },
@@ -34,5 +34,8 @@ export default {
     permissions(state) {
         return _.orderBy(state.permissions, 'name', 'asc')
         // return state.permissions;
+    },
+    staff(state) {
+        return state.staff;
     },
 }

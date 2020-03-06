@@ -39,8 +39,8 @@
                             </div>
                             <div>
                                 <label for="">Staff</label>
-                                <el-select v-model="form.staff_id" filterable remote reserve-keyword style="width: 100%" placeholder="type at least 3 characters" :remote-method="search_users" :loading="loading">
-                                    <el-option v-for="item in users.data" :key="item.id" :label="item.name" :value="item.id">
+                                <el-select v-model="form.staff_id" filterable remote reserve-keyword style="width: 100%" placeholder="type at least 3 characters" :remote-method="search_staff" :loading="loading">
+                                    <el-option v-for="item in staff.data" :key="item.id" :label="item.name" :value="item.id">
                                     </el-option>
                                 </el-select>
                             </div>
@@ -77,16 +77,16 @@ export default {
         form: {},
         errors: {},
         status: [{
-                value: 'Open',
-                lable: 'Open',
+                value: 'WIP',
+                lable: 'WIP',
             },
             {
-                value: 'Closed',
-                lable: 'Closed',
+                value: 'COMPLETED',
+                lable: 'COMPLETED',
             },
             {
-                value: 'Cancelled',
-                lable: 'Cancelled',
+                value: 'CANCELLED',
+                lable: 'CANCELLED',
             },
         ],
         client_type: [{
@@ -119,12 +119,20 @@ export default {
         close() {
             this.dialog = false;
         },
-        search_users(search) {
+
+        getStaff() {
+            var payload = {
+                model: 'staff',
+                update: 'updateStaffList'
+            }
+            this.$store.dispatch("getItems", payload);
+        },
+        search_staff(search) {
             // console.log(search);
             if (search.length > 2) {
                 var payload = {
-                    model: 'search_users',
-                    update: 'updateUsersList',
+                    model: 'search_staff',
+                    update: 'updateStaffList',
                     search: search
                 }
                 this.$store.dispatch("searchItems", payload);
@@ -135,8 +143,8 @@ export default {
         loading() {
             return this.$store.getters.loading;
         },
-        users() {
-            return this.$store.getters.users;
+        staff() {
+            return this.$store.getters.staff;
         },
     },
 };

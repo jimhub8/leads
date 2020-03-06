@@ -27,12 +27,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('clients', 'ClientController');
     Route::resource('jobs', 'JobController');
     Route::resource('jobtypes', 'JobtypeController');
+    Route::resource('staff', 'StaffController');
 
 
     Route::get('deletedUsers', 'UserController@deletedUsers')->name('deletedUsers');
     Route::get('search_users/{search}', 'UserController@search_users')->name('search_users');
 
     Route::get('search_client/{search}', 'ClientController@search_client')->name('search_client');
+    Route::get('search_staff/{search}', 'StaffController@search_staff')->name('search_staff');
 
     Route::get('user_count', 'DashboardController@user_count')->name('user_count');
     Route::get('client_count', 'DashboardController@client_count')->name('client_count');
@@ -54,6 +56,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('getRoles', 'RoleController@getRoles')->name('getRoles');
     Route::post('getUserPerm/{id}', 'UserController@getUserPerm')->name('getUserPerm');
 
+    Route::patch('status/{id}', 'JobController@status')->name('status');
 
 
 });

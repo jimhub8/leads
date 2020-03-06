@@ -20,5 +20,25 @@ export default {
     components: {
         myJobs,
     },
+    methods: {
+        getClients() {
+            var payload = {
+                model: 'clients',
+                update: 'updateClientList'
+            }
+            this.$store.dispatch("getItems", payload);
+        },
+        getStaff() {
+            var payload = {
+                model: 'staff',
+                update: 'updateStaffList'
+            }
+            this.$store.dispatch("getItems", payload);
+        },
+    },
+    mounted () {
+        this.getClients()
+        this.getStaff()
+    },
 }
 </script>

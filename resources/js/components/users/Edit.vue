@@ -35,20 +35,20 @@
                                         <v-text-field v-model="form.phone" color="blue darken-2" label="Phone" required></v-text-field>
                                         <small class="has-text-danger" v-if="errors.phone">{{ errors.phone[0] }}</small>
                                     </v-flex>
-                                    <!-- <div class="form-group col-md-6" v-if="form.roles.length > 0">
+                                    <div class="form-group col-md-6" v-if="form.roles.length > 0">
                                         <label class="col-md-6 col-form-label text-md-right" for="">Role</label>
                                         <select class="custom-select custom-select-md col-md-12" v-for="user_role in form.roles" :key="user_role.id_" v-model="user_role.name">
                                             <option v-for="roles in roles" :key="roles.id" :value="roles.name">{{ roles.name }}</option>
                                         </select>
                                         <small class="has-text-danger" v-if="errors.role_id">{{ errors.role_id[0] }}</small>
-                                    </div> -->
-                                    <!-- <div class="form-group col-md-6" v-else>
+                                    </div>
+                                    <div class="form-group col-md-6" v-else>
                                         <label class="col-md-6 col-form-label text-md-right" for="">Role</label>
                                         <select class="custom-select custom-select-md col-md-12" v-model="form.role_id">
                                             <option v-for="roles in roles" :key="roles.id" :value="roles.name">{{ roles.name }}</option>
                                         </select>
                                         <small class="has-text-danger" v-if="errors.role_id">{{ errors.role_id[0] }}</small>
-                                    </div> -->
+                                    </div>
 
                                 </v-layout>
                             </v-container>

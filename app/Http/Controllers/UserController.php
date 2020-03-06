@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::paginate(500);
+        return User::with('roles')->paginate(500);
     }
 
     /**
@@ -39,8 +39,8 @@ class UserController extends Controller
         $user->password = $password_hash;
         $user->name = $request->name;
         $user->email = $request->email;
-        // $user->phone = $request->phone;
-        // $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
         // $user->city = $request->city;
         // $user->country_id = $request->country_id;
         $user->save();
@@ -67,7 +67,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // return $request->all();
         $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        // $user->city = $request->city;
+        $user->save();
+        $user->syncRoles($request->role_id);
+        return $user;
     }
 
     /**

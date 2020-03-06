@@ -21,16 +21,6 @@ class JobController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -57,30 +47,6 @@ class JobController extends Controller
         $job->save();
 
         $job->jobtype()->attach($request->jobs_arr);
-
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Job $job)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Job $job)
-    {
-        //
     }
 
     /**
@@ -111,11 +77,27 @@ class JobController extends Controller
         $jobs->transform(function ($job) {
             // $job->job_type = 'test';
             // $job->job_type = $job->jobtype->jobtype;
-            $job->client_name = $job->client->name;
-            $job->staff_name = $job->staff->name;
-            $job->user_name = $job->user->name;
+            $job->client_name = ($job->client) ? $job->client->name : null;
+            $job->staff_name = ($job->staff) ? $job->staff->name : null;
+            $job->user_name = ($job->user) ? $job->user->name : null;
             return $job;
         });
         return $jobs;
+    }
+
+    public function status(Request $request, $id)
+    {
+        $job = Job::find($id);
+        $job->status = $request->status;
+        $job->status = $request->status;
+        $job->staff_comments = $request->comment;
+        // $job->status = $request->status;
+        if ($request->status == 'COMPLETED') {
+            $job->completed_on = now();
+        }
+        if ($request->status == 'CANCELLED') {
+            $job->cancelled_on = now();
+        }
+        $job->save();
     }
 }

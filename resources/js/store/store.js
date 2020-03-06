@@ -21,7 +21,7 @@ export default {
 
         role_perm: [],
         user_perm: [],
-        cart: [],
+        staff: [],
 
     },
     getters,

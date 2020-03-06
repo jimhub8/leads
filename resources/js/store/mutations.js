@@ -14,11 +14,8 @@ export default {
     updateRoleList(state, payload) {
         state.roles = payload
     },
-    updateProductsList(state, payload) {
-        state.products = payload
-    },
-    updateSupplierList(state, payload) {
-        state.suppliers = payload
+    updateStaffList(state, payload) {
+        state.staff = payload
     },
     updateClientList(state, payload) {
         state.clients = payload

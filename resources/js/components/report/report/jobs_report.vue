@@ -7,44 +7,74 @@
         </VCardTitle>
         <VDivider />
         <v-card-text>
-            <div>
-                <label for="">Client</label>
-                <el-select v-model="jobs_report.client" multiple filterable remote reserve-keyword placeholder="type at least 3 characters" :remote-method="search_client" :loading="loading" style="width: 100%;">
-                    <el-option v-for="item in clients.data" :key="item.id" :label="item.name" :value="item.id">
-                    </el-option>
-                </el-select>
-            </div>
-            <div>
-                <label for="">Staff</label>
-                <el-select v-model="jobs_report.staff" multiple filterable remote reserve-keyword placeholder="type at least 3 characters" :remote-method="search_users" :loading="loading" style="width: 100%;">
-                    <el-option v-for="item in users.data" :key="item.id" :label="item.name" :value="item.id">
-                    </el-option>
-                </el-select>
-            </div>
-            <div>
-                <label for="">Job Type</label>
-                <el-select v-model="jobs_report.jobtype_id" multiple="" filterable style="width: 100%" placeholder="Select">
-                    <el-option v-for="item in jobtypes.data" :key="item.id" :label="item.jobtype" :value="item.id">
-                    </el-option>
-                </el-select>
-            </div>
-            <div>
-                <label for="">Status</label>
-                <el-select v-model="jobs_report.status" multiple filterable clearable placeholder="status" style="width: 100%;">
-                    <el-option v-for="item in status" :key="item.value" :label="item.label" :value="item.value">
-                    </el-option>
-                </el-select>
-            </div>
-            <div class="block">
-                <span class="demonstration" style="float: left">Start Date</span>
-                <el-date-picker v-model="jobs_report.start_date" type="date" placeholder="Pick a day" style="width: 100%;">
-                </el-date-picker>
-            </div>
-            <div class="block">
-                <span class="demonstration" style="float: left">End Date</span>
-                <el-date-picker v-model="jobs_report.end_date" type="date" placeholder="Pick a day" style="width: 100%;">
-                </el-date-picker>
-            </div>
+            <v-layout row wrap>
+                <v-flex sm12>
+                    <div>
+                        <el-radio v-model="selects.client_select" label="all_clients">All clients</el-radio>
+                        <el-radio v-model="selects.client_select" label="custom_clients">Select clients</el-radio>
+                    </div>
+                </v-flex>
+                <v-flex sm12>
+                    <div v-if="selects.client_select == 'custom_clients'">
+                        <label for="">Client</label>
+                        <el-select v-model="jobs_report.client" multiple filterable remote reserve-keyword placeholder="type at least 3 characters" :remote-method="search_client" :loading="loading" style="width: 100%;">
+                            <el-option v-for="item in clients.data" :key="item.id" :label="item.name" :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </v-flex>
+                <div style="margin: 20px" v-if="selects.client_select == 'custom_clients'"></div>
+                <v-flex sm12>
+                    <div>
+                        <el-radio v-model="selects.staff_select" label="all_staffs">All Staffs</el-radio>
+                        <el-radio v-model="selects.staff_select" label="custom_staffs">Select Staffs</el-radio>
+                    </div>
+                </v-flex>
+                <v-flex sm12>
+                    <div v-if="selects.staff_select == 'custom_staffs'">
+                        <label for="">Staff</label>
+                        <el-select v-model="jobs_report.staff" multiple filterable remote reserve-keyword placeholder="type at least 3 characters" :remote-method="search_staff" :loading="loading" style="width: 100%;">
+                            <el-option v-for="item in staff.data" :key="item.id" :label="item.name" :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </v-flex>
+                <div style="margin: 20px" v-if="selects.client_select == 'custom_staffs'"></div>
+                <v-flex sm12>
+                    <div>
+                        <el-radio v-model="selects.jobs_select" label="all_jobs">All Job types</el-radio>
+                        <el-radio v-model="selects.jobs_select" label="custom_jobs">Select Job types</el-radio>
+                    </div>
+                </v-flex>
+                <v-flex sm12>
+                    <div v-if="selects.jobs_select == 'custom_jobs'">
+                        <label for="">Job Type</label>
+                        <el-select v-model="jobs_report.jobtype_id" multiple="" filterable style="width: 100%" placeholder="Select">
+                            <el-option v-for="item in jobtypes.data" :key="item.id" :label="item.jobtype" :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </v-flex>
+                <v-flex sm12>
+                    <div>
+                        <label for="">Status</label>
+                        <el-select v-model="jobs_report.status" multiple filterable clearable placeholder="status" style="width: 100%;">
+                            <el-option v-for="item in status" :key="item.value" :label="item.label" :value="item.value">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </v-flex>
+                <div class="block">
+                    <span class="demonstration" style="float: left">Start Date</span>
+                    <el-date-picker v-model="jobs_report.start_date" type="date" placeholder="Pick a day" style="width: 100%;">
+                    </el-date-picker>
+                </div>
+                <div class="block">
+                    <span class="demonstration" style="float: left">End Date</span>
+                    <el-date-picker v-model="jobs_report.end_date" type="date" placeholder="Pick a day" style="width: 100%;">
+                    </el-date-picker>
+                </div>
+            </v-layout>
         </v-card-text>
         <v-card-actions>
 
@@ -80,6 +110,11 @@ export default {
             form: {
                 search: ''
             },
+            selects: {
+                staff_select: 'all_staffs',
+                client_select: 'all_clients',
+                jobs_select: 'all_jobs',
+            },
             jobs_report: {
                 start_date: '',
                 end_date: '',
@@ -102,22 +137,23 @@ export default {
                 'Created On': 'created_at',
             },
             status: [{
-                    value: 'Open',
-                    lable: 'Open',
+                    value: 'WIP',
+                    lable: 'WIP',
                 },
                 {
-                    value: 'Closed',
-                    lable: 'Closed',
+                    value: 'COMPLETED',
+                    lable: 'COMPLETED',
                 },
                 {
-                    value: 'Cancelled',
-                    lable: 'Cancelled',
+                    value: 'CANCELLED',
+                    lable: 'CANCELLED',
                 },
             ],
         }
     },
     methods: {
         getReport() {
+            this.jobs_report.selects = this.selects
             this.loading = true;
             axios.post('jobs_report', this.jobs_report).then((response) => {
                 this.loading = false
@@ -151,12 +187,12 @@ export default {
                 this.$store.dispatch("searchItems", payload);
             }
         },
-        search_users(search) {
+        search_staff(search) {
             // console.log(search);
             if (search.length > 2) {
                 var payload = {
-                    model: 'search_users',
-                    update: 'updateUsersList',
+                    model: 'search_staff',
+                    update: 'updateStaffList',
                     search: search
                 }
                 this.$store.dispatch("searchItems", payload);
@@ -179,8 +215,8 @@ export default {
         loading() {
             return this.$store.getters.loading;
         },
-        users() {
-            return this.$store.getters.users;
+        staff() {
+            return this.$store.getters.staff;
         },
         clients() {
             return this.$store.getters.clients
@@ -198,6 +234,6 @@ label {
 }
 
 .theme--light.v-card>.v-card__text {
-    height: 410px;
+    /* height: 410px; */
 }
 </style>

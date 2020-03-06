@@ -27,10 +27,10 @@
                                         <v-text-field v-model="form.address" color="blue darken-2" label="Address" required></v-text-field>
                                         <small class="has-text-danger" v-if="errors.address">{{ errors.address[0] }}</small>
                                     </v-flex>
-                                    <v-flex xs12 sm6>
+                                    <!-- <v-flex xs12 sm6>
                                         <v-text-field v-model="form.city" color="blue darken-2" label="City" required></v-text-field>
                                         <small class="has-text-danger" v-if="errors.city">{{ errors.city[0] }}</small>
-                                    </v-flex>
+                                    </v-flex> -->
                                     <v-flex xs12 sm6>
                                         <v-text-field v-model="form.phone" color="blue darken-2" label="Phone" required></v-text-field>
                                         <small class="has-text-danger" v-if="errors.phone">{{ errors.phone[0] }}</small>

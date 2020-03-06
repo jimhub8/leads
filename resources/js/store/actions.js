@@ -193,27 +193,31 @@ export default {
         // console.log(data);
         // var update_ = payload['update_list']
         context.commit('loading', true)
-        axios.post(model, data).then((response) => {
-            context.commit('loading', false)
-            eventBus.$emit('alertRequest', 'Created')
-        // console.log(response.data);
-            // context.commit(update_, response.data)
-        }).catch((error) => {
-            // console.log(error.response.data.errors);
+        return new Promise((resolve, reject) => {
+            axios.post(model, data).then((response) => {
+                context.commit('loading', false)
+                eventBus.$emit('alertRequest', 'Created')
+                // console.log(response.data);
+                // context.commit(update_, response.data)
+                resolve(response)
+            }).catch((error) => {
+                // console.log(error.response.data.errors);
+                reject(error)
 
-            context.commit('loading', false)
-            if (error.response.status === 500 || error.response.status === 405) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                var errors_ = error.response.data.errors
-            context.commit('errors', errors_)
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            context.commit('errors', error.response.data.errors)
+                context.commit('loading', false)
+                if (error.response.status === 500 || error.response.status === 405) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    var errors_ = error.response.data.errors
+                    context.commit('errors', errors_)
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                context.commit('errors', error.response.data.errors)
+            })
         })
     },
 
@@ -226,21 +230,25 @@ export default {
         var data = payload.data
         var id = payload.id
         context.commit('loading', true)
-        axios.patch(model + '/' + id, data).then((response) => {
-            eventBus.$emit('alertRequest', 'Updated')
-            context.commit('loading', false)
-        }).catch((error) => {
-            context.commit('loading', false)
-            if (error.response.status === 500 || error.response.status === 405) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
+        return new Promise((resolve, reject) => {
+            axios.patch(model + '/' + id, data).then((response) => {
+                eventBus.$emit('alertRequest', 'Updated')
+                context.commit('loading', false)
+                resolve(response)
+            }).catch((error) => {
+                reject(error)
+                context.commit('loading', false)
+                if (error.response.status === 500 || error.response.status === 405) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
         })
     },
 
@@ -252,24 +260,28 @@ export default {
         var update_ = payload.update
         var search = payload.search
         context.commit('loading', true)
-        axios.get(model + '/' + search).then((response) => {
-            context.commit('loading', false)
+        return new Promise((resolve, reject) => {
+            axios.get(model + '/' + search).then((response) => {
+                context.commit('loading', false)
 
-            context.commit(update_, response.data)
-        }).catch((error) => {
-            console.log(error);
+                context.commit(update_, response.data)
+                resolve(response)
+            }).catch((error) => {
+                console.log(error);
+                reject(error)
 
-            context.commit('loading', false)
-            if (error.response.status === 500) {
-                eventBus.$emit('errorEvent', error.response.statusText)
-                return
-            } else if (error.response.status === 401 || error.response.status === 409) {
-                eventBus.$emit('reloadRequest', error.response.statusText)
-            } else if (error.response.status === 422) {
-                eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
-                return
-            }
-            this.errors = error.response.data.errors
+                context.commit('loading', false)
+                if (error.response.status === 500) {
+                    eventBus.$emit('errorEvent', error.response.statusText)
+                    return
+                } else if (error.response.status === 401 || error.response.status === 409) {
+                    eventBus.$emit('reloadRequest', error.response.statusText)
+                } else if (error.response.status === 422) {
+                    eventBus.$emit('errorEvent', error.response.data.message + ': ' + error.response.statusText)
+                    return
+                }
+                this.errors = error.response.data.errors
+            })
         })
     },
 

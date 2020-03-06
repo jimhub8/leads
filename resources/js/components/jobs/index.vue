@@ -64,6 +64,14 @@
                             </v-tooltip>
                             <v-tooltip bottom>
                                 <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon class="mx-0" @click="openStatus(props.row)" slot="activator">
+                                        <v-icon small color="blue darken-2">update</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>update {{ props.row.job_type }} status</span>
+                            </v-tooltip>
+                            <v-tooltip bottom>
+                                <template v-slot:activator="{ on }">
                                     <v-btn v-on="on" icon class="mx-0" @click="openShow(props.row)" slot="activator">
                                         <v-icon small color="blue darken-2">visibility</v-icon>
                                     </v-btn>
@@ -88,6 +96,7 @@
     <Create></Create>
     <Edit></Edit>
     <Show></Show>
+    <Status></Status>
 </v-content>
 </template>
 
@@ -95,13 +104,15 @@
 import Create from "./create";
 import Edit from "./edit";
 import Show from "./show";
+import Status from "./status";
 
 export default {
     props: ['user'],
     components: {
         Create,
         Edit,
-        Show
+        Show,
+        Status
     },
     data() {
         return {
@@ -119,10 +130,10 @@ export default {
                     field: "id",
                     type: "number"
                 },
-                {
-                    label: "Created by",
-                    field: "user_name"
-                },
+                // {
+                //     label: "Created by",
+                //     field: "user_name"
+                // },
                 {
                     label: "Assigned to",
                     field: "staff_name"
@@ -140,12 +151,20 @@ export default {
                     field: "status"
                 },
                 {
-                    label: "Created On",
-                    field: "created_at",
-                    // type: "date",
-                    // dateInputFormat: "YYYY-MM-DD",
-                    // dateOutputFormat: "Do MMMM YYYY"
+                    label: "Start date",
+                    field: "start_date"
                 },
+                {
+                    label: "End date",
+                    field: "end_date"
+                },
+                // {
+                //     label: "Created On",
+                //     field: "created_at",
+                //     // type: "date",
+                //     // dateInputFormat: "YYYY-MM-DD",
+                //     // dateOutputFormat: "Do MMMM YYYY"
+                // },
                 {
                     label: "Actions",
                     field: "actions",
@@ -165,6 +184,9 @@ export default {
         },
         openEdit(data) {
             eventBus.$emit("openEditJob", data);
+        },
+        openStatus(data) {
+            eventBus.$emit("openStatusJob", data);
         },
         openShow(data) {
             eventBus.$emit("openShowJob", data);
@@ -262,5 +284,4 @@ export default {
     width: 10px !important;
     margin-left: 40% !important;
 }
-
 </style>
